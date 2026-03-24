@@ -1,0 +1,64 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Run default test suite
+        run: pytest -q
+
+  integration-db-tests:
+    runs-on: ubuntu-latest
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        env:
+          ACCEPT_EULA: Y
+          MSSQL_SA_PASSWORD: ${{ secrets.CI_SQLSERVER_SA_PASSWORD != '' && secrets.CI_SQLSERVER_SA_PASSWORD || 'Strong_Passw0rd!123' }}
+        ports:
+          - 1433:1433
+    env:
+      CI_SQLSERVER_SA_PASSWORD: ${{ secrets.CI_SQLSERVER_SA_PASSWORD != '' && secrets.CI_SQLSERVER_SA_PASSWORD || 'Strong_Passw0rd!123' }}
+      TEST_DB_ADMIN_CONN_STR: DRIVER={ODBC Driver 18 for SQL Server};SERVER=127.0.0.1,1433;DATABASE=master;UID=sa;PWD=${{ secrets.CI_SQLSERVER_SA_PASSWORD != '' && secrets.CI_SQLSERVER_SA_PASSWORD || 'Strong_Passw0rd!123' }};Encrypt=no;TrustServerCertificate=yes;
+      TEST_DB_CONN_STR: DRIVER={ODBC Driver 18 for SQL Server};SERVER=127.0.0.1,1433;DATABASE=mini_protheus_ci;UID=sa;PWD=${{ secrets.CI_SQLSERVER_SA_PASSWORD != '' && secrets.CI_SQLSERVER_SA_PASSWORD || 'Strong_Passw0rd!123' }};Encrypt=no;TrustServerCertificate=yes;
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ODBC Driver 18
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl gnupg apt-transport-https unixodbc-dev
+          curl https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
+          curl https://packages.microsoft.com/config/ubuntu/24.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Initialize integration database
+        run: python tests/init_integration_db.py
+
+      - name: Run DB-backed business tests
+        run: pytest -q tests/test_business_flows_db.py

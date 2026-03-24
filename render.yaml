@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mini-protheus-api
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: DB_CONN_STR
+        sync: false
+      - key: CORS_ALLOW_ORIGINS
+        sync: false

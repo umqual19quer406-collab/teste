@@ -1,0 +1,281 @@
+{
+  "info": {
+    "name": "Mini Protheus - Testes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth - Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/x-www-form-urlencoded" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/login",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["login"]
+        },
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "username", "value": "admin" },
+            { "key": "password", "value": "Troque123!" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Param - SF4 TES Venda",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/parametros/sf4",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["parametros", "sf4"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"tes_cod\": \"001\",\n  \"cfop\": \"5102\",\n  \"icms\": 0.12,\n  \"ipi\": 0.04,\n  \"tipo\": \"S\",\n  \"gera_tit\": true,\n  \"gera_est\": true,\n  \"descr\": \"TES VENDA PADRAO\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Param - SF4 TES Devolução",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/parametros/sf4",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["parametros", "sf4"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"tes_cod\": \"002\",\n  \"cfop\": \"1202\",\n  \"icms\": 0.12,\n  \"ipi\": 0.04,\n  \"tipo\": \"E\",\n  \"gera_tit\": true,\n  \"gera_est\": true,\n  \"descr\": \"TES DEVOLUCAO\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Produtos - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/produtos",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["produtos"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cod\": \"PRD001\",\n  \"desc\": \"Produto Teste\",\n  \"preco\": 100\n}"
+        }
+      }
+    },
+    {
+      "name": "Clientes - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/clientes",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["clientes"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"cod\": \"000123\",\n  \"nome\": \"Cliente Teste\",\n  \"cpf_cnpj\": \"12345678900\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Criar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/pedidos",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "pedidos"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"valor_total\": 1000,\n  \"status\": \"ABERTO\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Adicionar Item",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/pedidos/{{pedido_id}}/itens",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "pedidos", "{{pedido_id}}", "itens"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"produto\": \"PRD001\",\n  \"qtd\": 2,\n  \"total\": 200,\n  \"preco_unit\": 100\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Liberar Tudo",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/pedidos/{{pedido_id}}/liberar-tudo",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "pedidos", "{{pedido_id}}", "liberar-tudo"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"usar_estoque\": true\n}"
+        }
+      }
+    },
+    {
+      "name": "Pedidos - Faturar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/pedidos/{{pedido_id}}/faturar",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "pedidos", "{{pedido_id}}", "faturar"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"cliente_cod\": \"000123\",\n  \"venc_dias\": 30,\n  \"tes_cod\": \"001\"\n}"
+        }
+      }
+    },
+    {
+      "name": "NF - Estornar",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/nf/{{nf_id}}/estornar",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "nf", "{{nf_id}}", "estornar"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"motivo\": \"Teste estorno\"\n}"
+        }
+      }
+    },
+    {
+      "name": "NF - Devolver",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/nf/{{nf_id}}/devolver",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "nf", "{{nf_id}}", "devolver"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"filial\": \"01\",\n  \"tes_cod\": \"002\",\n  \"venc_dias\": 30\n}"
+        }
+      }
+    },
+    {
+      "name": "NF - Buscar por Doc/Serie",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/vendas/nf/buscar?filial=01&doc={{nf_doc}}&serie={{nf_serie}}",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["vendas", "nf", "buscar"],
+          "query": [
+            { "key": "filial", "value": "01" },
+            { "key": "doc", "value": "{{nf_doc}}" },
+            { "key": "serie", "value": "{{nf_serie}}" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Relatórios - Conciliação NF",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/relatorios/conciliacao-nf?filial=01",
+          "protocol": "http",
+          "host": ["127.0.0.1"],
+          "port": "8000",
+          "path": ["relatorios", "conciliacao-nf"],
+          "query": [
+            { "key": "filial", "value": "01" }
+          ]
+        }
+      }
+    }
+  ]
+}

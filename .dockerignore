@@ -1,0 +1,14 @@
+.git
+.github
+.pytest_cache
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+node_modules
+frontend/node_modules
+frontend/dist
+tests
+docs/screenshots
+mini_protheus_codigo_fonte.pdf
