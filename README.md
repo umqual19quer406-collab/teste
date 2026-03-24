@@ -8,6 +8,36 @@ ERP enxuto em desenvolvimento, inspirado na organizacao funcional do ecossistema
 
 O projeto foi estruturado para portfolio tecnico e demonstracao local, sem depender de ambiente online obrigatorio para comunicar valor.
 
+## Leitura Rapida
+
+### Screenshots
+
+- galeria principal em [docs/screenshots/README.md](/c:/Users/umqua/Desktop/mini_protheus/docs/screenshots/README.md)
+
+### Stack
+
+- FastAPI
+- React + Vite + TypeScript
+- SQL Server
+- JWT
+
+### Modulos
+
+- comercial
+- financeiro
+- reservas
+- parceiros
+- auditoria
+- relatorios
+
+### Fluxo Principal
+
+- pedido
+- faturamento
+- AR/AP
+- caixa
+- DRE e margem
+
 ## Resumo
 
 O Mini Protheus combina:
@@ -394,7 +424,7 @@ pytest -q tests/test_business_flows_db.py
 ```
 
 Se voce ja tem dados no SQL Server local, crie uma base separada de testes.
-Existe um script para isso em [sql_create_test_database.sql](/c:/Users/umqua/Desktop/mini_protheus/sql_create_test_database.sql).
+Existe um script para isso em [database/sql_create_test_database.sql](/c:/Users/umqua/Desktop/mini_protheus/database/sql_create_test_database.sql).
 
 Depois inicialize o schema minimo da base de testes:
 
@@ -427,9 +457,12 @@ CI:
 - `app/api/routers/`: rotas da API
 - `app/use_cases/`: regras de negocio
 - `app/infra/`: acesso a dados e repositorios
+- `database/`: scripts SQL e modelos auxiliares
 - `frontend/src/`: aplicacao React
+- `scripts/`: utilitarios de suporte
 - `tests/`: testes automatizados do backend
 - `docs/screenshots/`: evidencias visuais
+- `docs/assets/`: materiais de apoio e artefatos visuais auxiliares
 
 ## Deploy
 
@@ -503,7 +536,7 @@ Observacao:
 - [CHANGELOG.md](/c:/Users/umqua/Desktop/mini_protheus/CHANGELOG.md)
 - [RELEASE_CHECKLIST.md](/c:/Users/umqua/Desktop/mini_protheus/RELEASE_CHECKLIST.md)
 - [postman_collection.json](/c:/Users/umqua/Desktop/mini_protheus/postman_collection.json)
-- [mini_protheus_codigo_fonte.pdf](/c:/Users/umqua/Desktop/mini_protheus/mini_protheus_codigo_fonte.pdf)
+- [docs/assets/reference/mini_protheus_codigo_fonte.pdf](/c:/Users/umqua/Desktop/mini_protheus/docs/assets/reference/mini_protheus_codigo_fonte.pdf)
 
 ## Conclusao
 
