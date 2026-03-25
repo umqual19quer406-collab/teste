@@ -67,15 +67,30 @@ Frontend:
 - evitar barras do navegador quando possivel
 - manter zoom legivel para tabelas e indicadores
 
+## Galeria Rapida
+
+Swagger / API:
+
+![Swagger Overview](swagger-overview.png)
+![Swagger Vendas](swagger-vendas.png)
+![Swagger Schemas](swagger-schemas.png)
+
+Frontend:
+
+![Frontend Dashboard](frontend-dashboard.png)
+![Frontend Clientes](frontend-clientes.png)
+![Frontend Pedidos](frontend-pedidos.png)
+![Frontend Financeiro AR](frontend-financeiro-ar.png)
+
 ## Integracao no README
 
-Quando os arquivos reais existirem, eles podem ser referenciados diretamente assim:
+Neste arquivo, que ja esta dentro de `docs/screenshots/`, os caminhos precisam ser relativos ao proprio diretorio:
 
 ```md
-![Swagger](docs/screenshots/swagger-overview.png)
-![Dashboard](docs/screenshots/frontend-dashboard.png)
-![Clientes](docs/screenshots/frontend-clientes.png)
-![Pedidos](docs/screenshots/frontend-pedidos.png)
+![Swagger](swagger-overview.png)
+![Dashboard](frontend-dashboard.png)
+![Clientes](frontend-clientes.png)
+![Pedidos](frontend-pedidos.png)
 ```
 
 ## Observacao
