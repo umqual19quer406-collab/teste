@@ -48,6 +48,8 @@ def faturar_reserva_tx(
         raise BusinessError("Filial não cadastrada (SM0_EMPRESA)")
     fechamento_validar_periodo_tx(cur, filial, date.today())
     produto_snapshot = sb1_get_tx(cur, produto, filial)
+    if int(produto_snapshot["B1_ESTOQUE"]) < qtd or int(produto_snapshot["B1_RESERVADO"]) < qtd:
+        raise BusinessError("Estoque/reservado insuficiente para confirmar")
 
     cliente_nome = None
     if cliente_cod:

@@ -30,7 +30,7 @@ def editar_item_tx(
     exigir_perfil_tx(cur, usuario, {"admin", "operador"}) 
  
     it = sc6_item_get_tx(cur, int(item_id)) 
-    if not it or int(it.get("C6_ATIVO") or 0) != 1: 
+    if not it or int(it.get("C6_ATIVO") or 1) != 1:
         raise BusinessError("Item não encontrado/INATIVO") 
  
     pedido_id = int(it["C6_PEDIDO_ID"]) 
@@ -66,7 +66,7 @@ def excluir_item_tx(cur, usuario: str, item_id: int, filial: str | None) -> dict
     exigir_perfil_tx(cur, usuario, {"admin", "operador"}) 
  
     it = sc6_item_get_tx(cur, int(item_id)) 
-    ativo = it.get("C6_ATIVO") if it else None 
+    ativo = it.get("C6_ATIVO") if it else None
     if not it: 
         raise BusinessError("Item não encontrado") 
     if ativo in (0, False):  # já deletado lógico 

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 from app.infra.db import fetchall_dict
+from app.infra.repositories.vendas.sc6_itens_repo import _sc6_ativo_filter
 
 
 def sc9_resumo_por_pedido_tx(cur, pedido_id: int) -> list[dict]:
+    ativo_filter = _sc6_ativo_filter(cur, alias="i")
     cur.execute(
-        """
+        f"""
         SELECT
           i.ID AS item_id,
           i.C6_PRODUTO AS produto,
@@ -22,7 +24,7 @@ def sc9_resumo_por_pedido_tx(cur, pedido_id: int) -> list[dict]:
           GROUP BY C9_PEDIDO_ID, C9_PRODUTO, C9_ITEM
         ) l ON l.C9_PEDIDO_ID = i.C6_PEDIDO_ID AND l.C9_PRODUTO = i.C6_PRODUTO AND l.C9_ITEM = i.ID
         WHERE i.C6_PEDIDO_ID = ?
-          AND i.C6_ATIVO = 1
+          {ativo_filter}
           AND (i.D_E_L_E_T_ IS NULL OR i.D_E_L_E_T_ <> '*')
         ORDER BY i.C6_PRODUTO
         """,

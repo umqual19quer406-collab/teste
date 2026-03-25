@@ -312,6 +312,7 @@ SCHEMA_STATEMENTS = [
             C6_VALOR DECIMAL(18,2) NOT NULL,
             C6_PRECO_UNIT DECIMAL(18,2) NULL,
             C6_TOTAL DECIMAL(18,2) NULL,
+            C6_ATIVO BIT NOT NULL DEFAULT (1),
             D_E_L_E_T_ CHAR(1) NULL,
             R_E_C_N_O_ INT NULL,
             R_E_C_D_E_L_ INT NULL
