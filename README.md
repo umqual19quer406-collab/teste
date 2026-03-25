@@ -2,7 +2,7 @@
 
 > Versao recomendada para publicacao atual: `v1.0.0-beta.1`
 
-Versao comercial curta para portfolio: [README_PORTFOLIO.md](/c:/Users/umqua/Desktop/mini_protheus/README_PORTFOLIO.md)
+Versao comercial curta para portfolio: [README_PORTFOLIO.md](README_PORTFOLIO.md)
 
 ERP enxuto em desenvolvimento, inspirado na organizacao funcional do ecossistema Protheus, com foco em operacao comercial, financeiro, reservas, fiscal e rastreabilidade de fluxo.
 
@@ -12,7 +12,7 @@ O projeto foi estruturado para portfolio tecnico e demonstracao local, sem depen
 
 ### Screenshots
 
-- galeria principal em [docs/screenshots/README.md](/c:/Users/umqua/Desktop/mini_protheus/docs/screenshots/README.md)
+- galeria principal em [docs/screenshots/README.md](docs/screenshots/README.md)
 
 ### Stack
 
@@ -216,7 +216,7 @@ Frontend:
 ![Frontend Financeiro AP](docs/screenshots/frontend-financeiro-ap.png)
 ![Frontend Margem Produto](docs/screenshots/frontend-margem-produto.png)
 
-Mais telas em [docs/screenshots/README.md](/c:/Users/umqua/Desktop/mini_protheus/docs/screenshots/README.md).
+Mais telas em [docs/screenshots/README.md](docs/screenshots/README.md).
 
 ## Diferenciais Tecnicos
 
@@ -424,7 +424,7 @@ pytest -q tests/test_business_flows_db.py
 ```
 
 Se voce ja tem dados no SQL Server local, crie uma base separada de testes.
-Existe um script para isso em [database/sql_create_test_database.sql](/c:/Users/umqua/Desktop/mini_protheus/database/sql_create_test_database.sql).
+Existe um script para isso em [database/sql_create_test_database.sql](database/sql_create_test_database.sql).
 
 Depois inicialize o schema minimo da base de testes:
 
@@ -479,7 +479,7 @@ Frontend:
 Backend:
 
 - Render ou Railway
-- imagem baseada no [Dockerfile](/c:/Users/umqua/Desktop/mini_protheus/Dockerfile)
+- imagem baseada no [Dockerfile](Dockerfile)
 - suporta porta dinamica via `PORT`
 - healthcheck em `/healthz`
 
@@ -533,10 +533,10 @@ Observacao:
 
 ## Material De Apoio
 
-- [CHANGELOG.md](/c:/Users/umqua/Desktop/mini_protheus/CHANGELOG.md)
-- [RELEASE_CHECKLIST.md](/c:/Users/umqua/Desktop/mini_protheus/RELEASE_CHECKLIST.md)
-- [postman_collection.json](/c:/Users/umqua/Desktop/mini_protheus/postman_collection.json)
-- [docs/assets/reference/mini_protheus_codigo_fonte.pdf](/c:/Users/umqua/Desktop/mini_protheus/docs/assets/reference/mini_protheus_codigo_fonte.pdf)
+- [CHANGELOG.md](CHANGELOG.md)
+- [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)
+- [postman_collection.json](postman_collection.json)
+- [docs/assets/reference/mini_protheus_codigo_fonte.pdf](docs/assets/reference/mini_protheus_codigo_fonte.pdf)
 
 ## Conclusao
 

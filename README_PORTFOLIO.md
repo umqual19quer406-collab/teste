@@ -62,7 +62,7 @@ Frontend:
 ![Frontend Financeiro AR](docs/screenshots/frontend-financeiro-ar.png)
 ![Frontend Margem Produto](docs/screenshots/frontend-margem-produto.png)
 
-Mais imagens em [docs/screenshots/README.md](/c:/Users/umqua/Desktop/mini_protheus/docs/screenshots/README.md).
+Mais imagens em [docs/screenshots/README.md](docs/screenshots/README.md).
 
 ## Como Apresentar
 
@@ -100,10 +100,10 @@ Hoje ele deve ser entendido como:
 
 ## Material Tecnico
 
-- README tecnico principal: [README.md](/c:/Users/umqua/Desktop/mini_protheus/README.md)
-- changelog: [CHANGELOG.md](/c:/Users/umqua/Desktop/mini_protheus/CHANGELOG.md)
-- checklist de release: [RELEASE_CHECKLIST.md](/c:/Users/umqua/Desktop/mini_protheus/RELEASE_CHECKLIST.md)
-- colecao Postman: [postman_collection.json](/c:/Users/umqua/Desktop/mini_protheus/postman_collection.json)
+- README tecnico principal: [README.md](README.md)
+- changelog: [CHANGELOG.md](CHANGELOG.md)
+- checklist de release: [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)
+- colecao Postman: [postman_collection.json](postman_collection.json)
 
 ## Resumo
 
