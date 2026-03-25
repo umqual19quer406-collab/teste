@@ -2,11 +2,17 @@
 
 > Versao recomendada para publicacao atual: `v1.0.0-beta.1`
 
+Mini ERP full stack inspirado em fluxos operacionais do ecossistema Protheus, com foco em comercial, financeiro, reservas, fiscal e rastreabilidade de fluxo.
+
+Este repositorio foi montado para comunicar valor tecnico rapido:
+
+- backend FastAPI com regras de negocio por fluxo
+- frontend React + Vite para operacao e consulta
+- SQL Server como persistencia transacional
+- testes automatizados e CI
+- demonstracao local via Swagger, screenshots e UI
+
 Versao comercial curta para portfolio: [README_PORTFOLIO.md](README_PORTFOLIO.md)
-
-ERP enxuto em desenvolvimento, inspirado na organizacao funcional do ecossistema Protheus, com foco em operacao comercial, financeiro, reservas, fiscal e rastreabilidade de fluxo.
-
-O projeto foi estruturado para portfolio tecnico e demonstracao local, sem depender de ambiente online obrigatorio para comunicar valor.
 
 ## Leitura Rapida
 
@@ -37,6 +43,13 @@ O projeto foi estruturado para portfolio tecnico e demonstracao local, sem depen
 - AR/AP
 - caixa
 - DRE e margem
+
+### O Que Um Recrutador Deve Reter
+
+- projeto full stack com backend, frontend e banco integrados
+- modelagem de fluxo de negocio real, nao apenas CRUD isolado
+- preocupacao com contrato de API, deploy e testes
+- apresentacao pronta mesmo sem ambiente online permanente
 
 ## Resumo
 
@@ -536,7 +549,6 @@ Observacao:
 - [CHANGELOG.md](CHANGELOG.md)
 - [RELEASE_CHECKLIST.md](RELEASE_CHECKLIST.md)
 - [postman_collection.json](postman_collection.json)
-- [docs/assets/reference/mini_protheus_codigo_fonte.pdf](docs/assets/reference/mini_protheus_codigo_fonte.pdf)
 
 ## Conclusao
 
