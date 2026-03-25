@@ -44,7 +44,7 @@ Versao comercial curta para portfolio: [README_PORTFOLIO.md](README_PORTFOLIO.md
 - caixa
 - DRE e margem
 
-### O Que Um Recrutador Deve Reter
+### Destaques Do Projeto
 
 - projeto full stack com backend, frontend e banco integrados
 - modelagem de fluxo de negocio real, nao apenas CRUD isolado
