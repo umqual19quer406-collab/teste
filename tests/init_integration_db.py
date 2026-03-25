@@ -21,7 +21,7 @@ def _extract_database_name(conn_str: str) -> str:
     return match.group(1).strip()
 
 
-def _connect_with_retry(conn_str: str, attempts: int = 30, sleep_seconds: int = 2, autocommit: bool = False):
+def _connect_with_retry(conn_str: str, attempts: int = 60, sleep_seconds: int = 2, autocommit: bool = False):
     last_error: Exception | None = None
     for _ in range(attempts):
         try:
