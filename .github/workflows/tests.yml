@@ -23,7 +23,7 @@ jobs:
         run: pytest -q
 
   integration-db-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     services:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2022-latest
@@ -46,11 +46,11 @@ jobs:
       - name: Install ODBC Driver 18
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl gnupg apt-transport-https unixodbc-dev
+          sudo apt-get install -y curl gnupg unixodbc unixodbc-dev
           curl https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg
-          curl https://packages.microsoft.com/config/ubuntu/24.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
+          curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/microsoft-prod.list
           sudo apt-get update
-          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18
+          sudo env ACCEPT_EULA=Y apt-get install -y msodbcsql18
 
       - name: Install Python dependencies
         run: |
