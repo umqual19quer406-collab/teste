@@ -561,5 +561,3 @@ O Mini Protheus ja comunica bem valor tecnico mesmo sem ambiente online:
 - API documentada
 - testes automatizados
 - deploy preparado
-
-Para portfolio, isso ja sustenta uma apresentacao forte.
